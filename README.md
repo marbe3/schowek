@@ -1,0 +1,2 @@
+# schowek
+Plugin na depozyt.

@@ -1,0 +1,22 @@
+# MYSQL #
+mysql:
+ host: "localhost"
+ port: 3306
+ user: "root"
+ base: "minecraft"
+ password: ""
+
+# LIMITY #
+kox-limit: 2
+gApple-limit: 12
+pearl-limit: 3
+arrow-limit: 16
+
+# GUI #
+gui-name: "&A&LSCHOWEK"
+kox-name: "&a&LKOXY: "
+gApple-name: "&a&LREFY: "
+pearl-name: "&a&LPERLY: "
+arrow-name: "&a&LSTRZALY: "
+limit-lore: " &6LIMIT: &a{LIMIT}"
+amount-lore: " &6POSIADASZ: &a{AMOUNT}"
