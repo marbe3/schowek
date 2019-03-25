@@ -18,6 +18,13 @@ public final class ItemUtil {
     public static int getAmount(Player player, Material material, short durability) {
         return Arrays.stream(player.getInventory().getContents()).filter(itemStack -> itemStack != null && itemStack.getType() == material && itemStack.getDurability() == durability).mapToInt(ItemStack::getAmount).sum();
     }
+    
+    public static void remove(Player player, Material material, short durability, int amount) {
+    	Arrays.stream(player.getInventory().getContents()).filter(itemStack -> itemStack != null && itemStack.getType() == material && itemStack.getDurability() == durability).forEach(itemStack -> {
+    		if (itemStack.getAmount() >= amount) itemStack.setAmount(itemStack.getAmount() - amount);
+    		else player.getInventory().removeItem(itemStack);
+    	});
+    }
 
     public static ItemStack getRandomGlass() {
         return new ItemStackBuilder(new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) (RANDOM.nextInt(15 - 1) + 1))).setName(" ").build();
