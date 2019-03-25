@@ -1,8 +1,8 @@
 package pl.c9f.deposit.tasks;
 
 import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
+
 import pl.c9f.deposit.Main;
 import pl.c9f.deposit.objects.User;
 import pl.c9f.deposit.utils.ItemUtil;
@@ -26,19 +26,19 @@ public class CheckTask extends BukkitRunnable {
                 final int pearlAmount = ItemUtil.getAmount(player, Material.ENDER_PEARL, (short) 0);
                 final int arrowAmount = ItemUtil.getAmount(player, Material.ARROW, (short) 0);
                 if (koxAmount > this.plugin.getSettings().getKoxLimit()) {
-                    player.getInventory().removeItem(new ItemStack(Material.GOLDEN_APPLE, koxAmount - this.plugin.getSettings().getKoxLimit(), (short) 1));
+                	ItemUtil.remove(player, Material.GOLDEN_APPLE, (short) 1, koxAmount - this.plugin.getSettings().getKoxLimit());
                     user.setApplesOne(user.getApplesOne() + koxAmount - this.plugin.getSettings().getKoxLimit());
                 }
                 if (gAppleAmount > this.plugin.getSettings().getGAppleLimit()) {
-                    player.getInventory().removeItem(new ItemStack(Material.GOLDEN_APPLE, gAppleAmount - this.plugin.getSettings().getGAppleLimit(), (short) 0));
+                	ItemUtil.remove(player, Material.GOLDEN_APPLE, (short) 0, gAppleAmount - this.plugin.getSettings().getGAppleLimit());
                     user.setApplesTwo(user.getApplesTwo() + gAppleAmount - this.plugin.getSettings().getGAppleLimit());
                 }
                 if (pearlAmount > this.plugin.getSettings().getPearlLimit()) {
-                    player.getInventory().removeItem(new ItemStack(Material.ENDER_PEARL, pearlAmount - this.plugin.getSettings().getPearlLimit(), (short) 0));
+                	ItemUtil.remove(player, Material.ENDER_PEARL, (short) 0, pearlAmount - this.plugin.getSettings().getPearlLimit());
                     user.setPearls(user.getPearls() + pearlAmount - this.plugin.getSettings().getPearlLimit());
                 }
                 if (arrowAmount > this.plugin.getSettings().getArrowLimit()) {
-                    player.getInventory().removeItem(new ItemStack(Material.ARROW, arrowAmount - this.plugin.getSettings().getArrowLimit(), (short) 0));
+                	ItemUtil.remove(player, Material.ARROW, (short) 0, arrowAmount - this.plugin.getSettings().getArrowLimit());
                     user.setArrows(user.getArrows() + arrowAmount - this.plugin.getSettings().getArrowLimit());
                 }
             }
