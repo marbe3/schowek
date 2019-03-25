@@ -11,7 +11,6 @@ import pl.c9f.deposit.objects.User;
 import pl.c9f.deposit.utils.ColorUtil;
 import pl.c9f.deposit.utils.ItemUtil;
 
-import java.util.Random;
 import java.util.stream.IntStream;
 
 public class DepositInventory {
@@ -27,7 +26,7 @@ public class DepositInventory {
 		this.kox = new ItemStackBuilder(new ItemStack(Material.GOLDEN_APPLE, 1, (short) 1)).setName(this.plugin.getSettings().getKoxName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getKoxLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getApplesOne())));
 		this.gApple = new ItemStackBuilder(new ItemStack(Material.GOLDEN_APPLE)).setName(this.plugin.getSettings().getGAppleName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getGAppleLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getApplesTwo())));
 		this.pearl = new ItemStackBuilder(new ItemStack(Material.ENDER_PEARL)).setName(this.plugin.getSettings().getPearlName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getPearlLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getPearls())));
-		this.arrow = new ItemStackBuilder(new ItemStack(Material.ENDER_PEARL)).setName(this.plugin.getSettings().getArrowName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getArrowLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getArrows())));
+		this.arrow = new ItemStackBuilder(new ItemStack(Material.ARROW)).setName(this.plugin.getSettings().getArrowName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getArrowLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getArrows())));
 	}
 
 	public void open(Player player) {
