@@ -20,6 +20,7 @@ public class DepositInventory {
 	private ItemStackBuilder gApple;
 	private ItemStackBuilder pearl;
 	private ItemStackBuilder arrow;
+	private ItemStackBuilder hopper;
 
 	public DepositInventory(Main plugin, User user) {
 		this.plugin = plugin;
@@ -27,6 +28,7 @@ public class DepositInventory {
 		this.gApple = new ItemStackBuilder(new ItemStack(Material.GOLDEN_APPLE)).setName(this.plugin.getSettings().getGAppleName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getGAppleLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getApplesTwo())));
 		this.pearl = new ItemStackBuilder(new ItemStack(Material.ENDER_PEARL)).setName(this.plugin.getSettings().getPearlName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getPearlLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getPearls())));
 		this.arrow = new ItemStackBuilder(new ItemStack(Material.ARROW)).setName(this.plugin.getSettings().getArrowName()).setLore(this.plugin.getSettings().getLimitLore().replace("{LIMIT}", String.valueOf(this.plugin.getSettings().getArrowLimit())), this.plugin.getSettings().getNumberLore().replace("{AMOUNT}", String.valueOf(user.getArrows())));
+		this.hopper = new ItemStackBuilder(new ItemStack(Material.HOPPER)).setName(this.plugin.getSettings().getHopperName());
 	}
 
 	public void open(Player player) {
@@ -36,6 +38,7 @@ public class DepositInventory {
 		inventory.setItem(21, this.gApple.build());
 		inventory.setItem(23, this.pearl.build());
 		inventory.setItem(25, this.arrow.build());
+		inventory.setItem(31, this.hopper.build());
 		player.openInventory(inventory);
 	}	
 }
