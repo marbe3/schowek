@@ -56,6 +56,25 @@ public class InventoryClickListener implements Listener {
                     new DepositInventory(this.plugin, user).open(player);
                 }
             }
+            if (event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ColorUtil.fixColor(this.plugin.getSettings().getHopperName()))) {
+                if (user.getApplesOne() > this.plugin.getSettings().getKoxLimit()) {
+                    user.setApplesOne(user.getApplesOne() - this.plugin.getSettings().getKoxLimit());
+                    player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, this.plugin.getSettings().getKoxLimit(), (short) 1));
+                }
+                if (user.getApplesTwo() > this.plugin.getSettings().getGAppleLimit()) {
+                    user.setApplesTwo(user.getApplesTwo() - this.plugin.getSettings().getGAppleLimit());
+                    player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, this.plugin.getSettings().getGAppleLimit(), (short) 0));
+                }
+                if (user.getPearls() > this.plugin.getSettings().getPearlLimit()) {
+                    user.setPearls(user.getPearls() - this.plugin.getSettings().getPearlLimit());
+                    player.getInventory().addItem(new ItemStack(Material.ENDER_PEARL, this.plugin.getSettings().getPearlLimit()));
+                }
+                if (user.getArrows() > this.plugin.getSettings().getArrowLimit()) {
+                    user.setArrows(user.getArrows() - this.plugin.getSettings().getArrowLimit());
+                    player.getInventory().addItem(new ItemStack(Material.ARROW, this.plugin.getSettings().getArrowLimit()));
+                }
+                new DepositInventory(this.plugin, user).open(player);
+            }
         }
     }
 }
