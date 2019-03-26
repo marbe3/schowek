@@ -15,6 +15,7 @@ public class Settings {
     private String gAppleName;
     private String pearlName;
     private String arrowName;
+    private String hopperName;
     private String limitLore;
     private String numberLore;
     private int koxLimit;
@@ -38,6 +39,7 @@ public class Settings {
         this.gAppleName = this.plugin.getConfig().getString("gApple-name");
         this.pearlName = this.plugin.getConfig().getString("pearl-name");
         this.arrowName = this.plugin.getConfig().getString("arrow-name");
+        this.hopperName = this.plugin.getConfig().getString("hopper-name");
         this.limitLore = this.plugin.getConfig().getString("limit-lore");
         this.numberLore = this.plugin.getConfig().getString("amount-lore");
         this.koxLimit = this.plugin.getConfig().getInt("kox-limit");
@@ -84,6 +86,9 @@ public class Settings {
 
     public String getArrowName() {
         return this.arrowName;
+    }
+    public String getHopperName() {
+        return this.hopperName;
     }
 
     public String getLimitLore() {
